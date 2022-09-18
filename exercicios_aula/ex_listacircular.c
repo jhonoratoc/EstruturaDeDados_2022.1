@@ -17,7 +17,7 @@ void inserir_fim(struct lista *);
 void inserir_inicio(struct lista *);
 
 void limpar_lista(struct lista *);
-void mostrar_lista(struct lista *); // mostra lixo
+void mostrar_lista(struct lista *);
 
 void remover_fim(struct lista *);
 void remover_inicio(struct lista *);
