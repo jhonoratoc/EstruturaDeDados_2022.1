@@ -46,20 +46,23 @@ int menu(struct lista *l){
 
     switch (escolha) {
         case 1: mostra_lista(l);
-                break;
+            break;
         case 2: insere_fim(l);
-                break;
+            break;
         case 3: remove_fim(l);
-                break;
+            break;
         case 4: limpa_lista(l);
-                break;
-        case 0: return 0;
+            break;
+        case 0:
+            return 0;
+        default:
+            puts("Codigo invalido!");
+            break;
+
     }
 
-    while (escolha != 0)
-        menu(l);
+    menu(l);
     
-    return 0;
 }
 
 
