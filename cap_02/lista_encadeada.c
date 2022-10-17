@@ -41,7 +41,7 @@ Lista *cria_lista(){
 
 void insere_inicio(Lista **ll, int n){
     Lista *novo = (Lista*) malloc(sizeof(Lista));       // alocando memória para o novo elemento
-    if (!novo) return;
+    if (!novo) return;                                      // verificando a alocação
     novo->valor = n;                                    // preenchendo o novo elemento
     novo->prox = *ll;                                   // encadeando o novo elemento ao antigo primeiro elemento da lista
     *ll = novo;                                         // adicionando o elemento ao início da lista
@@ -136,13 +136,13 @@ int menu(Lista **ll){
                 mostra_lista(ll);
                 break;
 
-        case 2: puts("Que elemento deseja inserir? ");
+        case 2: puts("\nQue elemento deseja inserir? ");
                 scanf("%d", &n);
                 insere_inicio(ll, n);
                 puts("inserido!\n");
                 break;
 
-        case 3: puts("Que elemento deseja inserir? ");
+        case 3: puts("\nQue elemento deseja inserir? ");
                 scanf("%d", &n);
                 insere_fim(ll, n);
                 puts("inserido!\n");
