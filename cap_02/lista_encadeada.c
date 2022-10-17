@@ -158,7 +158,7 @@ void menu(Lista **ll){
                 puts("lista limpa!\n");
                 break;
 
-        case -1: return 0;
+        case -1: return;
 
         default: puts("Valor invalido!\n");
                 break;
