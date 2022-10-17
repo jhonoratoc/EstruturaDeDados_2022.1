@@ -20,7 +20,7 @@ void mostra_lista(Lista **ll);
 void limpa_lista(Lista **ll);               // precisa de ponteiro pra ponteiro
 int lista_vazia(Lista *l);
 
-int menu(Lista **ll);
+void menu(Lista **ll);
 
 
 
@@ -117,7 +117,7 @@ int lista_vazia(Lista *l){
 }
 
 
-int menu(Lista **ll){
+void menu(Lista **ll){
     puts("Digite o que deseja fazer:");
     puts("1: mostrar a lista");
     puts("2: inserir elemento no inicio da lista");
