@@ -48,11 +48,12 @@ void insere_inicio(Lista **ll, int n){
 }
 
 void remove_inicio(Lista **ll){
+    if (!(*ll)) return;
     Lista *temp = *ll;                                  // criando um ponteiro para lista para não perder o acesso ao elemento a ser retirado
     *ll = (*ll)->prox;                                  // a partir de agora, a lista começará do antigo segundo elemento
     free(temp);                                         // liberando o elemento retirado, utilizando o ponteiro para lista
+    puts("removido!");
 }
-
 
 
 void insere_fim(Lista **ll, int n){
@@ -69,10 +70,12 @@ void insere_fim(Lista **ll, int n){
 }
 
 void remove_fim(Lista **ll){
+    if (!(*ll)) return;
     Lista *temp = *ll;                                      // criando um ponteiro para lista para acessar o último elemento
     for (; temp->prox->prox != NULL; temp = temp->prox);    // acessando o PENÚLTIMO elemento
     free(temp->prox);                                       // liberando o último elemento
     temp->prox = NULL;                                      // transformando o penúltimo elemento no novo último elemento
+    puts("removido!");
 }
 
 
@@ -137,11 +140,9 @@ int menu(Lista **ll){
                 break;
 
         case 4: remove_inicio(ll);
-                puts("removido!");
                 break;        
         
         case 5: remove_fim(ll);
-                puts("removido!");
                 break;
 
         case 6: limpa_lista(ll);
