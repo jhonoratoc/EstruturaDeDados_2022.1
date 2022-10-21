@@ -61,21 +61,26 @@ void remove1(Lista **ll, int n){
         return;
     }
 
-    Lista *remove = *ll;
+    Lista *aux = *ll;
 
     if((*ll)->prox == NULL || (*ll)->valor == n){
-        *ll = remove->prox;
-        remove->prox = NULL;
-        free(remove);
-        puts("removido!\n");
+        if((*ll)->valor == n){
+            *ll = aux->prox;
+            aux->prox = NULL;
+            free(aux);
+            puts("removido!\n");
+        }else{
+            puts("valor nao existe!\n");
+        }
     } else {
-        for(; remove->prox->prox && remove->prox->prox->valor <= n; remove = remove->prox);
-        if (remove->prox->valor != n)
+        for(; aux->prox->prox && aux->prox->prox->valor <= n; aux = aux->prox);
+        Lista *remove = aux->prox;
+        if (remove->valor != n)
             puts("valor nao existe!\n");
         else{
-            remove->prox = remove->prox->prox;
-            remove->prox->prox = NULL;
-            free(remove->prox);
+            aux->prox = remove->prox;
+            remove->prox = NULL;
+            free(remove);
             puts("removido!\n");
         }
     }
