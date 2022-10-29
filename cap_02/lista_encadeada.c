@@ -9,16 +9,25 @@ typedef struct lista{
 
 Lista* cria_lista();
 
-void insere_inicio(Lista **ll, int n);      // precisa de ponteiro pra ponteiro
-void remove_inicio(Lista **ll);             // precisa de ponteiro pra ponteiro
+void insere_inicio(Lista **ll, int n);
+void remove_inicio(Lista **ll);
 
 void insere_fim(Lista **ll, int n);
 void remove_fim(Lista **ll);
 
 void mostra_lista(Lista **ll);
 
-void limpa_lista(Lista **ll);               // precisa de ponteiro pra ponteiro
+void limpa_lista(Lista **ll);
 int lista_vazia(Lista *l);
+
+// exercício 2.1
+int comprimento(Lista *l);
+// exercício 2.2
+int maiores(Lista *l, int n);
+// exercício 2.3
+Lista *ultimo(Lista *l);
+// exercício 2.4
+Lista *concatena(Lista *l1, Lista *l2);
 
 void menu(Lista **ll);
 
@@ -26,9 +35,21 @@ void menu(Lista **ll);
 
 int main(){
 
-    Lista *lista = cria_lista();
-    menu(&lista);
+    // Lista *lista1 = cria_lista();
+    // puts("\n============ LISTA 01 ==============");
+    // menu(&lista1);
+    
+    // Lista *lista2 = cria_lista();
+    // puts("\n============ LISTA 02 ==============");
+    // menu(&lista2);
 
+    // Lista *lista3 = concatena(lista1, lista2);
+    // puts("\n============ LISTA 03 ==============");
+    // menu(&lista3);
+
+    Lista *lista1 = cria_lista();
+    menu(&lista1);
+    
     return 0;
 }
 
@@ -116,6 +137,62 @@ int lista_vazia(Lista *l){
     return (l == NULL);         // retorna 1 se a lista estiver vazia
 }
 
+// exercício 2.1
+int comprimento(Lista *l){
+    int nos = 0;
+    for(Lista *aux = l; aux; aux=aux->prox)
+        nos++;
+    return nos;
+}
+
+// exercício 2.2
+int maiores(Lista *l, int n){
+    int maiores = 0;
+    for(Lista *aux = l; aux; aux=aux->prox){
+        if(aux->valor > n)
+            maiores++;
+    }
+
+    return maiores;
+}
+
+// exercício 2.3
+Lista *ultimo(Lista *l){
+    Lista *aux = l;
+    for(; aux->prox; aux=aux->prox);
+    return aux;
+}
+
+Lista *concatena(Lista *l1, Lista *l2){
+    Lista *aux = l1;
+    for(; aux->prox; aux=aux->prox);
+
+    aux->prox = l2;
+    l2 = NULL;
+
+    return l1;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 void menu(Lista **ll){
     puts("Digite o que deseja fazer:");
@@ -125,6 +202,12 @@ void menu(Lista **ll){
     puts("4: remover elemento no inicio da lista");
     puts("5: remover elemento no fim da lista");
     puts("6: limpar a lista");
+    puts("-------------- EXERCICIOS -------------");
+    // puts("7: comprimento da lista");
+    // puts("7: quantidade de elementos maiores do que n");
+    // puts("7: ultimo elemento da lista");
+
+    
     puts("-1: encerrar");
 
     int escolha;
@@ -157,6 +240,22 @@ void menu(Lista **ll){
         case 6: limpa_lista(ll);
                 puts("lista limpa!\n");
                 break;
+        
+        // case 7: printf("\n%d elementos\n", comprimento(*ll));
+        //         break;
+
+        // case 7: puts("\nDigite um valor inteiro");
+        //         scanf("%d", &n);
+        //         printf("\nExiste %d elementos maiores do que %d\n\n", maiores(*ll, n), n);
+        //         break;
+
+        // case 7: 
+        //         if(!(*ll)){
+        //             puts("\nlista vazia!\n");
+        //             break;
+        //         }
+        //         printf("\nUltimo elemento:\n%d\n\n", (ultimo(*ll))->valor);
+        //         break;
 
         case -1: return;
 

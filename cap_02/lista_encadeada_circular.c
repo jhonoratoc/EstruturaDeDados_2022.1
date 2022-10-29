@@ -9,16 +9,16 @@ typedef struct lista{
 
 Lista* cria_lista();
 
-void insere_inicio(Lista **ll, int n);      // precisa de ponteiro pra ponteiro
-void remove_inicio(Lista **ll);             // precisa de ponteiro pra ponteiro
+void insere_inicio(Lista **ll, int n);
+void remove_inicio(Lista **ll);
 
 void insere_fim(Lista **ll, int n);
 void remove_fim(Lista **ll);
 
 void mostra_lista(Lista **ll);
-void limpa_lista(Lista **ll);               // precisa de ponteiro pra ponteiro
-void menu(Lista **ll);
+void limpa_lista(Lista **ll);
 
+void menu(Lista **ll);
 
 
 
@@ -171,6 +171,7 @@ void limpa_lista(Lista **ll){
 
     puts("\nlista limpa!\n");
 }
+
 
 void menu(Lista **ll){
     puts("Digite o que deseja fazer:");
