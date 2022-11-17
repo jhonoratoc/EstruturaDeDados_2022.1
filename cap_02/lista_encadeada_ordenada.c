@@ -9,12 +9,12 @@ typedef struct lista{
 
 Lista* cria_lista();
 
-void insere(Lista **ll, int n);      // precisa de ponteiro pra ponteiro
-void remove1(Lista **ll, int n);      // precisa de ponteiro pra ponteiro
+void insere(Lista **ll, int n);
+void remove1(Lista **ll, int n);
 
 void mostra_lista(Lista **ll);
 
-void limpa_lista(Lista **ll);               // precisa de ponteiro pra ponteiro
+void limpa_lista(Lista **ll);
 int lista_vazia(Lista *l);
 
 void menu(Lista **ll);
